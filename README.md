@@ -1,4 +1,5 @@
 stegasaurus
 ===========
 
-Dropbox-powered steganography for encrypting messages
+Dropbox-powered system for transmitting steganographically-encoded images
+
