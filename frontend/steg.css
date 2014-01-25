@@ -1,0 +1,36 @@
+#brand {
+	font-family: 'Alegreya Sans', sans-serif;
+    font-size: 24px;
+    /*background-color: #ccc;*/
+    /*margin: 4px;*/
+}
+
+.navbar-text {
+	font-family: 'Alegreya Sans', sans-serif;
+    font-size: 16px;
+}
+
+#credits {
+	font-family: 'Alegreya Sans', sans-serif;
+	float: none;
+    margin-left: auto;
+    margin-right: auto;	
+}
+
+.nav {
+	font-family: 'Alegreya Sans', sans-serif; 
+	padding-right: 4px;
+}
+
+#map{
+	border: 2px solid black;
+	margin: 10px;
+	margin-top: 48px;
+	float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {background-color:#b0c4de;} 
+
+/*font-family: 'Alegreya Sans SC', sans-serif;*/
