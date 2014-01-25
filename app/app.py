@@ -1,6 +1,22 @@
 from __future__ import print_function
 
+
 from flask import Flask, flask, flask.views, session, redirect, url_for, escape, request
+import sys
+import stepic
+
+from flask import Flask
+from PIL import Image
+
+# much image, such steg
+# ...
+# ...
+# Wooooooow
+def encode_image(imagefile, message, outfile):
+    image = Image.open(imagefile)
+    encoded = stepic.encode(image, message)
+    return encoded
+
 
 def main():
     print("Hackathon winning application right here")
