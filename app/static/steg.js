@@ -1,35 +1,52 @@
-var stegApp = (function(document, window, $) {
+var StegApp = (function(document, window, $) {
 
-    var module = {};
+    return function() {
 
-    module.displayRawImage = function(imageUrl) {
-        var $imageWrapper = $("#image-wrapper");
-        // clear existing image if it exists
-        $imageWrapper.children('img').remove();
+        var self = this;
 
-        var $image = $("<img/>")
-            .attr("src", imageUrl)
-            .attr("width", "100%");
+        this.imageSelected = false;
 
-        // Load image, then add to page
-        $image.load(function() {
-            $imageWrapper.append($(this));
+        this.displayRawImage = function(imageUrl) {
 
-            // Expand message box height to image height
-            $messageBox = $("#message");
+            this.imageSelected = true;
+            this.rawImageUrl = imageUrl;
 
-            $messageBox.height($(this).height());
-        });
+            var $imageWrapper = $("#image-wrapper");
+            // clear existing image if it exists
+            $imageWrapper.children('img').remove();
 
-    };
+            var $image = $("<img/>")
+                .attr("src", imageUrl)
+                .attr("width", "100%");
 
-    return module;
+            // Load image, then add to page
+            $image.load(function() {
+                $imageWrapper.append($(this));
+
+                // Expand message box height to image height
+                $messageBox = $("#message");
+
+                $messageBox.height($(this).height());
+            });
+
+        };
+
+        this.encodeImage = function() {
+            if (!this.imageSelected) {
+                alert("Must select image first!");
+                return;
+            }
+        }
+    }
 
 }(document, window, jQuery));
 
 $(document).ready(function() {
 
-    var state = {};
+    var app = new StegApp();
+
+    // expose for debugging
+    window.stegApp = app;
 
     // capture message length
     $("#message").keydown( function(e){
@@ -40,9 +57,7 @@ $(document).ready(function() {
     var choose_opts = {
         success: function(files) {
             var rawImageUrl = files[0].link;
-            state.rawImageUrl = rawImageUrl;
-            console.log(rawImageUrl);
-            stegApp.displayRawImage(rawImageUrl);
+            app.displayRawImage(rawImageUrl);
         },
 
         cancel: function() {},
