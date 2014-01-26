@@ -68,4 +68,12 @@ h1 {
 
 body {background-color:#FFA240;}  
 
+#encrypt-buttons {
+  margin: 15px 0px 10px 0px;
+}
+
+#encrypt-buttons > button {
+  width: 50%;
+}
+
 /*font-family: 'Alegreya Sans SC', sans-serif;*/
