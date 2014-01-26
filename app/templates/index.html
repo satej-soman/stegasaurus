@@ -30,16 +30,19 @@
 	    <p class="navbar-text">(sneaky messages)</p>
     </div>
     <ul class="nav navbar-nav navbar-right">
-    	<p class="navbar-text">Mode: </p>
-		<li class="active" id="encrypt-mode"><a href="#encrypt-panel" data-toggle="tab">encrypt</a></li>
+    	<!-- <p class="navbar-text">Mode: </p> -->
+		<li class="active" id="encrypt-mode"><a href="#what" data-toggle="tab">about</a></li>
+		<li id="encrypt-mode"><a href="#encrypt-panel" data-toggle="tab">encrypt</a></li>
 		<li id="decrypt-mode"><a href="#decrypt-panel" data-toggle="tab">decrypt</a></li>
 		<li><a href="#"></a></li>
     </ul>
-
 </nav>
 
 <div class="tab-content">
-	<div id="encrypt-panel" class="row tab-pane fade in active">
+	<div id="what" class="row tab-pane fade in active">
+		<h1>What is stegAsaurus? <small>(we spelled it that way on purpose!)</small></h1>
+	</div>
+	<div id="encrypt-panel" class="row tab-pane fade">
 		<div class="row">
 			<div id="text-wrapper" class="col-xs-6">
 			  <h1>Message to Encode <small id="len">(length: 0)</small></h1>
@@ -62,7 +65,9 @@
 </div>
 
 <nav id="credits" class="navbar navbar-default navbar-inverse navbar-fixed-bottom" role="navigation">
-<p class="navbar-text">satej soman | adam midvidy | sam kirschner | zach hargreaves </p>
+	<p class="navbar-text">
+		satej soman | adam midvidy | sam kirschner | zach hargreaves
+	</p>
 </nav>
 
 
