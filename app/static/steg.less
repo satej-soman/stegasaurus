@@ -1,29 +1,50 @@
+@k_grey: #2C343B;
+@k_tan: #E5E1D1;
+@k_blugrey: #52616D;
+@k_red: #C44741;
+@k_light: #FFFFFF;
+
+@header_font: 'Alegreya Sans';
+@header_font_sc: 'Alegreya Sans SC';
+@mono: 'Inconsolata';
+@border_mode: #111;
+
+@border: 4px;
+
+body { 
+  background: url(static/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 #brand {
-	font-family: 'Alegreya Sans', sans-serif;
+	font-family: @header_font;
     font-size: 24px;
     /*background-color: #ccc;*/
     /*margin: 4px;*/
 }
 
 .navbar-text {
-	font-family: 'Alegreya Sans', sans-serif;
+	font-family: @header_font;
     font-size: 16px;
 }
 
 #credits {
-	font-family: 'Alegreya Sans', sans-serif;
+	font-family: @header_font;
 	float: none;
     margin-left: auto;
     margin-right: auto;	
 }
 
 .nav {
-	font-family: 'Alegreya Sans', sans-serif; 
+	font-family: @header_font; 
 	padding-right: 4px;
 }
 
 #submit {
-	font-family: 'Alegreya Sans', sans-serif; 
+	font-family: @header_font; 
 	padding-right: 4px;
 	float: center;
     margin-left: auto;
@@ -32,37 +53,28 @@
 }
 
 h1 {
-	font-family: 'Alegreya Sans SC', sans-serif;
-	background-color:#FFBB73;
-	border: 4px solid #FFA240;
+	font-family: @header_font_sc;
+	background-color:@k_red;
+	border: 4px solid @k_red+@border_mode;
 	border-radius: 3px;
 	padding: 4px;
 	margin:: 4px;
 }
 h4, #encode-workflow {
-	font-family: 'Alegreya Sans', sans-serif;
-	background-color:#FF9073;
-	border: 4px solid #FF6840;
+	font-family: @header_font;
+	background-color: @k_tan;
+	border: 4px solid @k_tan+@border_mode;
 	border-radius: 3px;
 	padding: 4px;
 	margin: 4px;
 	margin-top: 6px;
 
 }
-/*#image-header, #text-header{
-	font-family: 'Alegreya Sans SC', sans-serif;
-	font-size: 36px;
-	text-align: center;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2px;
-}*/
 
 #encode-panel, #decode-panel, #what {
-	font-family: 'Alegreya Sans', sans-serif; 
-    background-color:#06799F;
-	border: 4px solid #024E68;
+	font-family: @header_font; 
+    background-color: @k_blugrey;
+	border: 4px solid @k_blugrey+@border_mode;
 	border-radius: 3px;
 	margin: 10px;
 	margin-top: 96px;
@@ -77,7 +89,7 @@ h4, #encode-workflow {
 	margin-right: 4px;
 }
 
-body {background-color:#FFA240;}  
+/*body {background-color:@k_light;}  */
 
 #encode-buttons {
   margin: 15px 0px 10px 0px;
@@ -100,4 +112,3 @@ body {background-color:#FFA240;}
 	margin-left: 5px;
 }
 
-/*font-family: 'Alegreya Sans SC', sans-serif;*/
