@@ -40,6 +40,8 @@ var StegApp = (function(document, window, $, Dropbox, Spinner) {
 
         this.displayRawImage = function(imageUrl) {
 
+        	console.log("*")
+
             this.imageSelected = true;
             this.rawImageUrl = imageUrl;
 
@@ -57,6 +59,37 @@ var StegApp = (function(document, window, $, Dropbox, Spinner) {
 
                 // Expand message box height to image height
                 $messageBox = $("#message");
+
+                $messageBox.height($(this).height());
+
+                $("#load-button").removeClass('active').addClass('disabled');
+                $("#encode-button").removeClass('disabled').addClass('active');
+            });
+
+        };
+
+
+        this.displayDecodedImage = function(imageUrl) {
+
+        	console.log("*")
+
+            this.imageSelected = true;
+            this.rawImageUrl = imageUrl;
+
+            var $imageWrapper = $("#image-wrapper-decoded");
+            // clear existing image if it exists
+            $imageWrapper.children('img').remove();
+
+            var $image = $("<img/>")
+                .attr("src", imageUrl)
+                .attr("width", "100%");
+
+            // Load image, then add to page
+            $image.load(function() {
+                $imageWrapper.append($(this));
+
+                // Expand message box height to image height
+                $messageBox = $("#decoded-message");
 
                 $messageBox.height($(this).height());
 
@@ -121,13 +154,17 @@ var StegApp = (function(document, window, $, Dropbox, Spinner) {
 
         this.decodeImage = function() {
 
-                var endpoint = window.location.href.split('?')[0] + 'decoder/';
+                var endpoint = window.location.origin + '/decoder/';
                 var image    = $("#encoded-image-url").val();
 
                 if (!image){
                         this.error("Must select image to decode!");
                         return;
                 }
+
+                this.displayDecodedImage(image);
+
+                this.startSpinner();
 
                 $.ajax({
                         type: 'POST',
@@ -137,6 +174,7 @@ var StegApp = (function(document, window, $, Dropbox, Spinner) {
                         }
                 }).done(function(data) {
                         self.decodedData = data;
+                        self.stopSpinner();
                         $("#decoded-message").text(self.decodedData);
                         self.info("Image successfully decoded!");
                 })
