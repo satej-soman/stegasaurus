@@ -22,15 +22,50 @@
 	padding-right: 4px;
 }
 
-#map{
-	border: 2px solid black;
+#submit {
+	font-family: 'Alegreya Sans', sans-serif; 
+	padding-right: 4px;
+	float: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+h1 {
+	font-family: 'Alegreya Sans SC', sans-serif;
+	background-color:#FFBB73;
+	border: 4px solid #FFA240;
+	border-radius: 3px;
+
+}
+/*#image-header, #text-header{
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-size: 36px;
+	text-align: center;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+}*/
+
+#encrypt-panel, #decrypt-panel{
+	font-family: 'Alegreya Sans', sans-serif; 
+    background-color:#06799F;
+	border: 4px solid #024E68;
+	border-radius: 3px;
 	margin: 10px;
-	margin-top: 48px;
+	margin-top: 96px;
 	float: none;
     margin-left: auto;
     margin-right: auto;
+    padding: 2px;
+    width: 90%;
 }
 
-body {background-color:#b0c4de;} 
+#form-control {
+	margin-right: 4px;
+}
+
+body {background-color:#FFA240;}  
 
 /*font-family: 'Alegreya Sans SC', sans-serif;*/

@@ -1,10 +1,10 @@
 <html>
-<head>
+<head> 
 	<title> stegAsaurus | sneaky messages </title>
 
 	<!-- JQUERY -->
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-
+	
 	<!-- BOOTSTRAP -->
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
@@ -15,11 +15,6 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-
-	<!-- LEAFLET -->
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2"></script>
-
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,700|Alegreya+Sans+SC:400,300,700' rel='stylesheet' type='text/css'>
 
@@ -27,16 +22,44 @@
 	<link rel="stylesheet" href="static/steg.css" />
 	<script type="text/javascript" src="static/steg.js"></script>
 </head>
-
+	
 <body>
 <nav class="navbar navbar-default navbar-fixed-top navbar-static-top navbar-inverse" role="navigation">
     <div class="navbar-header">
 	    <a class="navbar-brand" id="brand" href="#">steg<b>A</b>saurus</a>
-	    <p class="navbar-text">sneaky messages</p>
+	    <p class="navbar-text">(sneaky messages)</p>
     </div>
+    <ul class="nav navbar-nav navbar-right">
+    	<p class="navbar-text">Mode: </p>
+		<li class="active" id="encrypt-mode"><a href="#encrypt-panel" data-toggle="tab">encrypt</a></li>
+		<li id="decrypt-mode"><a href="#decrypt-panel" data-toggle="tab">decrypt</a></li>
+		<li><a href="#"></a></li>
+    </ul>
+
 </nav>
 
-<div id="main"></div>
+<div class="tab-content">
+	<div id="encrypt-panel" class="row tab-pane fade in active">
+		<div class="row">
+			<div id="text-wrapper" class="col-xs-6">
+			  <h1>Message to Encode <small id="len">(length: 0)</small></h1>
+			  <textarea id="message" class="form-control" rows="10"></textarea>
+			</div>
+			<div id="image-wrapper" class="col-xs-6">
+				<h1>Image Payloads</h1>
+			</div>
+	  	</div>
+		<div class="row">
+			<div class="col-xs-6 col-md-4"></div>
+			<div class="col-xs-6 col-md-4"><button id="submit" type="button" class="btn btn-default btn-lg btn-block">Encode</button></div>
+			<div class="col-xs-6 col-md-4"></div>
+		</div>
+	</div>
+
+	<div id="decrypt-panel" class="row tab-pane fade">
+		<h1>Image to Decode <small>(from Dropbox)</small></h1>
+	</div>
+</div>
 
 <nav id="credits" class="navbar navbar-default navbar-inverse navbar-fixed-bottom" role="navigation">
 <p class="navbar-text">satej soman | adam midvidy | sam kirschner | zach hargreaves </p>
@@ -44,4 +67,4 @@
 
 
 </body>
-</html>
+</html>	
