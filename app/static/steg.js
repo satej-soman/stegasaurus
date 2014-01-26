@@ -4,6 +4,9 @@ var stegApp = (function(document, window, $) {
 
     module.displayRawImage = function(imageUrl) {
         var $imageWrapper = $("#image-wrapper");
+        // clear existing image if it exists
+        $imageWrapper.children('img').remove();
+
         var $image = $("<img/>")
             .attr("src", imageUrl)
             .attr("width", "100%");
