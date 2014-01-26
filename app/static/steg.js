@@ -87,7 +87,7 @@ var StegApp = (function(document, window, $, Dropbox) {
 
         this.decodeImage = function() {
 
-                var endpoint = window.location.href.split('?') + 'decoder/';
+                var endpoint = window.location.href.split('?')[0] + 'decoder/';
                 var image    = $("#encoded-image-url").val();
 
                 if (!image){
