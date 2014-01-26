@@ -61,7 +61,7 @@
 		<br><br>
 		In <b>decode</b> mode, simply drop a Dropbox URL for a steganographic image and recover the message.
 		<br><br>
-		<b>stegAsaurus</b> is powered by <a href="http://domnit.org/stepic/doc/">stepic</a> and <a href="http://flask.pocoo.org/">flask</a>.
+		<b>stegAsaurus</b> is powered by <a href="http://domnit.org/stepic/doc/">stepic</a> and <a href="http://flask.pocoo.org/">flask</a>. Source code available on <a href="https://github.com/satej-soman/stegasaurus">github.</a>
 		</h4>
 	</div>
 	<div id="encode-panel" class="row tab-pane fade">
@@ -92,18 +92,23 @@
 	<div id="decode-panel" class="row tab-pane fade">
 		<!-- <h1>Image to Decode <small>(from Dropbox)</small></h1> -->
 		<div class="row">
-			<div id="text-wrapper" class="col-xs-6">
+			<div id="text-column" class="col-xs-6">
 			  <h1>Image to Decode </h1>
 				<form class="form-inline" role="form">
-				  <div class="form-group">
+					<div class="input-group input-group-lg">
+			  			<span class="input-group-addon">URL</span>
+		  				<input type="url" id="encoded-image-url" class="form-control" placeholder="Paste and hit 'Enter'">
+		  				<input type="submit" id="decode-submit" class="form-control">
+				</div>
+				<!-- <div class="form-group">
 				    <label class="sr-only" for="encoded-image-url">Encoded Image URL</label>
 				    <input type="url" class="form-control" id="encoded-image-url" placeholder="Enter URL here">
 				  </div>
-				  <button type="button" class="btn btn-default btn-lg" id="decode-submit">Decode</button>
+				  <button type="button" class="btn btn-default btn-lg" id="decode-submit">Decode</button> -->
 				</form>
-
+				<div id="image-wrapper-decoded" class="col-xs-6"></div>
 			</div>
-			<div id="image-wrapper" class="col-xs-6">
+			<div id="image-column" class="col-xs-6">
 				<h1> Decoded Message </h1>
 			  <textarea id="decoded-message" class="form-control" rows="10"></textarea>
 			</div>
