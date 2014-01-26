@@ -37,7 +37,7 @@ def encode():
 
 @app.route('/decoder/', methods = ['POST', 'GET'])
 def decode():
-    
+    pass
 
 
 # set the secret key. dummy value right now

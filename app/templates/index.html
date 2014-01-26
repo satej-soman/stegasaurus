@@ -6,17 +6,17 @@
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
 	<!-- BOOTSTRAP -->
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-        <!-- Dropbox lib -->
-        <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="vl7j0br3qthqq7i"></script>
+    <!-- Dropbox lib -->
+    <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="vl7j0br3qthqq7i"></script>
 
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,700|Alegreya+Sans+SC:400,300,700' rel='stylesheet' type='text/css'>
@@ -24,6 +24,7 @@
 	<!--  LOCAL CSS, JS -->
 	<link rel="stylesheet" href="static/steg.css" />
 	<script type="text/javascript" src="static/steg.js"></script>
+
 </head>
 
 <body>
@@ -69,7 +70,32 @@
 	</div>
 
 	<div id="decrypt-panel" class="row tab-pane fade">
-		<h1>Image to Decode <small>(from Dropbox)</small></h1>
+		<!-- <h1>Image to Decode <small>(from Dropbox)</small></h1> -->
+		<div class="row">
+			<div id="text-wrapper" class="col-xs-6">
+			  <h1>Image to Decrypt </h1>
+				<form class="form-inline" role="form">
+				  <div class="form-group">
+				    <label class="sr-only" for="encoded-image-url">Encoded Image URL</label>
+				    <input type="email" class="form-control" id="encoded-image-url" placeholder="Enter URL here">
+				  </div>
+				  <button type="submit" class="btn btn-default">Decrypt</button>
+				</form>
+
+			</div>
+			<div id="image-wrapper" class="col-xs-6">
+				<h1> Decrypted Message </h1>
+			  <textarea id="message" class="form-control" rows="10"></textarea>
+			</div>
+	  	</div>
+		<div class="row">
+			<div class="col-xs-4 col-md-4"></div>
+			<div class="col-xs-4 col-md-4 btn-group" id="encrypt-buttons">
+                                <button id="photo-select" type="button" class="btn btn-default btn-lg">Select Image</button>
+                                <button id="submit" type="button" class="btn btn-default btn-lg">Decode</button>
+                        </div>
+			<div class="col-xs-4 col-md-4"></div>
+		</div>
 	</div>
 </div>
 
