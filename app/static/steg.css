@@ -87,4 +87,8 @@ body {background-color:#FFA240;}
   width: 50%;
 }
 
+#encrypt-panel {
+  padding-bottom: 35px;
+}
+
 /*font-family: 'Alegreya Sans SC', sans-serif;*/
