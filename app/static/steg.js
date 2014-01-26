@@ -66,7 +66,7 @@ var StegApp = (function(document, window, $, Dropbox) {
 
            $.ajax({
                type: 'POST',
-               url: window.location.href + 'encoder/',
+               url: endpoint,
                data: {
                    img_url: self.rawImageUrl,
                    message: $("#message").val()
@@ -79,21 +79,43 @@ var StegApp = (function(document, window, $, Dropbox) {
            });
         };
 
+        this.decodeImage = function() {
+
+        	var endpoint = window.location.href.split('?') + 'decoder/';
+        	var image    = $("#encoded-image-url").val();
+
+        	if (!image){
+        		this.error("Must select image to decode!");
+        		return;
+        	} 
+
+        	$.ajax({
+        		type: 'POST',
+        		url: endpoint,
+        		data: {
+        			img_url: image
+        		}
+        	}).done(function(data) {
+        		self.decodedData = data;
+        		$("#decoded-message").text(self.decodedData);
+        		self.info("Image successfully decoded!");
+        	})
+        };
+
     };
 
 }(document, window, jQuery, Dropbox));
 
 $(document).ready(function() {
 
-    var app = new StegApp();
-
     // expose for debugging
+    var app = new StegApp();
     window.stegApp = app;
 
+    // ENCODE PANEL
     // capture message length
     $("#message").keydown( function(e){
         $("#len").text("(length: " + $("#message").val().length + ")");
-        console.log("*");
     });
 
     var choose_opts = {
@@ -111,9 +133,10 @@ $(document).ready(function() {
         extensions: [".jpg", ".jpeg", ".png", ".bmp", ".tiff"]
     };
 
-    $("#submit").click(function(e) {
+    $("#encode-submit").click(function(e) {
         app.encodeImage();
     });
+
 
     $("#photo-select").click(function(e) {
         Dropbox.choose(choose_opts);
@@ -124,5 +147,10 @@ $(document).ready(function() {
         if (data) {
             Dropbox.save(app.getEncodedImage(), "test.png");
         }
+    });
+
+    // DECODE PANEL
+    $("#decode-submit").click(function(e) {
+    	app.decodeImage();
     });
 });

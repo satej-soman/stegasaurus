@@ -31,13 +31,13 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-static-top navbar-inverse" role="navigation">
     <div class="navbar-header">
 	    <a class="navbar-brand" id="brand" href="#">steg<b>A</b>saurus</a>
-	    <p class="navbar-text">(sneaky messages)</p>
+	    <p class="navbar-text">(a picture is worth 2^N words)</p>
     </div>
     <ul class="nav navbar-nav navbar-right">
     	<!-- <p class="navbar-text">Mode: </p> -->
-		<li class="active" id="encrypt-mode"><a href="#what" data-toggle="tab">about</a></li>
-		<li id="encrypt-mode"><a href="#encrypt-panel" data-toggle="tab">encrypt</a></li>
-		<li id="decrypt-mode"><a href="#decrypt-panel" data-toggle="tab">decrypt</a></li>
+		<li class="active" id="encode-mode"><a href="#what" data-toggle="tab">about</a></li>
+		<li id="encode-mode"><a href="#encode-panel" data-toggle="tab">encode</a></li>
+		<li id="decode-mode"><a href="#decode-panel" data-toggle="tab">decode</a></li>
 		<li><a href="#"></a></li>
     </ul>
 </nav>
@@ -47,7 +47,7 @@
 		<h1>What is stegAsaurus? <small>(we spelled it that way on purpose!)</small></h1>
 		<h4><b>stegAsaurus</b> is a service to quickly and easily share steganographically encoded images over Dropbox</h4>
 	</div>
-	<div id="encrypt-panel" class="row tab-pane fade">
+	<div id="encode-panel" class="row tab-pane fade">
 		<div class="row">
 			<div id="text-wrapper" class="col-xs-6">
 			  <h1>Message to Encode <small id="len">(length: 0)</small></h1>
@@ -55,48 +55,46 @@
 			</div>
 			<div id="image-wrapper" class="col-xs-6">
 				<h1>Image Payload</h1>
-
-
 			</div>
 	  	</div>
 		<div class="row">
 			<div class="col-xs-4 col-md-4"></div>
-			<div class="col-xs-4 col-md-4 btn-group" id="encrypt-buttons">
+			<div class="col-xs-4 col-md-4 btn-group" id="encode-buttons">
                             <button id="photo-select" type="button" class="btn btn-default btn-lg">Select Image</button>
                             <button id="save" type="button" class="btn btn-default btn-lg">Save to Dropbox</button>
-                            <button id="submit" type="button" class="btn btn-default btn-lg">Encode</button>
+                            <button id="encode-submit" type="button" class="btn btn-default btn-lg">Encode</button>
                         </div>
 			<div class="col-xs-4 col-md-4"></div>
 		</div>
 	</div>
 
-	<div id="decrypt-panel" class="row tab-pane fade">
+	<div id="decode-panel" class="row tab-pane fade">
 		<!-- <h1>Image to Decode <small>(from Dropbox)</small></h1> -->
 		<div class="row">
 			<div id="text-wrapper" class="col-xs-6">
-			  <h1>Image to Decrypt </h1>
+			  <h1>Image to Decode </h1>
 				<form class="form-inline" role="form">
 				  <div class="form-group">
 				    <label class="sr-only" for="encoded-image-url">Encoded Image URL</label>
-				    <input type="email" class="form-control" id="encoded-image-url" placeholder="Enter URL here">
+				    <input type="url" class="form-control" id="encoded-image-url" placeholder="Enter URL here">
 				  </div>
-				  <button type="submit" class="btn btn-default">Decrypt</button>
+				  <button type="button" class="btn btn-default btn-lg" id="decode-submit">Decode</button>
 				</form>
 
 			</div>
 			<div id="image-wrapper" class="col-xs-6">
-				<h1> Decrypted Message </h1>
-			  <textarea id="message" class="form-control" rows="10"></textarea>
+				<h1> Decoded Message </h1>
+			  <textarea id="decoded-message" class="form-control" rows="10"></textarea>
 			</div>
 	  	</div>
-		<div class="row">
+<!-- 		<div class="row">
 			<div class="col-xs-4 col-md-4"></div>
-			<div class="col-xs-4 col-md-4 btn-group" id="encrypt-buttons">
+			<div class="col-xs-4 col-md-4 btn-group" id="encode-buttons">
                                 <button id="photo-select" type="button" class="btn btn-default btn-lg">Select Image</button>
                                 <button id="submit" type="button" class="btn btn-default btn-lg">Decode</button>
                         </div>
 			<div class="col-xs-4 col-md-4"></div>
-		</div>
+		</div> -->
 	</div>
 </div>
 
