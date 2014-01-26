@@ -82,10 +82,10 @@ body {background-color:#FFA240;}
 #encrypt-buttons {
   margin: 15px 0px 10px 0px;
 }
-
+/**
 #encrypt-buttons > button {
-  width: 50%;
-}
+  width: 30%;
+}**/
 
 #encrypt-panel {
   padding-bottom: 40px;

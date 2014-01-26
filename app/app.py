@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import sys
 import stepic
+import urllib
 import requests as r
 
 from StringIO import StringIO
@@ -31,9 +32,10 @@ def encode():
     raw_img = Image.open(StringIO(r.get(img_url).content))
     steg_encoded = stepic.encode(raw_img, message)
     out_buf = StringIO()
-    steg_encoded.save(out_buf, 'JPEG', quality=100)
+    steg_encoded.save(out_buf, 'PNG')
     out_buf.seek(0)
-    return send_file(out_buf, mimetype='image/jpeg')
+    encoded = out_buf.getvalue().encode("base64")
+    return 'data:image/png;base64,' + encoded
 
 # set the secret key. dummy value right now
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
