@@ -29,6 +29,9 @@ var StegApp = (function(document, window, $, Dropbox) {
                 $messageBox = $("#message");
 
                 $messageBox.height($(this).height());
+
+                $("#load-button").removeClass('active').addClass('disabled');
+                $("#encode-button").removeClass('disabled').addClass('active');
             });
 
         };
@@ -51,7 +54,7 @@ var StegApp = (function(document, window, $, Dropbox) {
 
         this.encodeImage = function() {
 
-            var endpoint = window.location.href + 'encoder/';
+            var endpoint = window.location.origin + '/encoder/';
             var message = $("#message").val()
 
             if (!this.imageSelected) {
@@ -75,6 +78,9 @@ var StegApp = (function(document, window, $, Dropbox) {
 
                self.encodedData = data;
                self.info("Image successfully encoded!");
+
+               $("#encode-button").removeClass('active').addClass('disabled');
+               $("#save-button").removeClass('disabled').addClass('active');
 
            });
         };
@@ -133,16 +139,16 @@ $(document).ready(function() {
         extensions: [".jpg", ".jpeg", ".png", ".bmp", ".tiff"]
     };
 
-    $("#encode-submit").click(function(e) {
+    $("#encode-button").click(function(e) {
         app.encodeImage();
     });
 
 
-    $("#photo-select").click(function(e) {
+    $("#load-button").click(function(e) {
         Dropbox.choose(choose_opts);
     });
 
-    $("#save").click(function(e) {
+    $("#save-button").click(function(e) {
         var data =  app.getEncodedImage();
         if (data) {
             Dropbox.save(app.getEncodedImage(), "test.png");
