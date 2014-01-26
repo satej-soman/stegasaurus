@@ -53,15 +53,17 @@
 <div class="tab-content">
 	<div id="what" class="row tab-pane fade in active">
 		<h1>What is stegAsaurus? <small>(we spelled it that way on purpose!)</small></h1>
-		<h4><b>stegAsaurus</b> is a service to quickly and easily share steganographically encoded messages over Dropbox. 
+		<h4><b>stegAsaurus</b> is a service to quickly and easily share steganographically encoded messages over Dropbox.
 		<br><br>
-		<a href="//en.wikipedia.org/wiki/Steganography">Steganography</a> is the practice of hiding text in images. The bytes comprising the payload image are modulated to hide the message in question. 
+		<a href="//en.wikipedia.org/wiki/Steganography">Steganography</a> is the practice of hiding text in images. The bytes comprising the payload image are modulated to hide the message in question.
 		<br><br>
-		In <b>encode</b> mode, select an image from your Dropbox account, provide a message to conceal, and drop the resultant back image in your Dropbox account.
+		In <b>encode</b> mode, select an image from your Dropbox account, provide a message to conceal, and drop the resultant image back in your Dropbox account.
 		<br><br>
 		In <b>decode</b> mode, simply drop a Dropbox URL for a steganographic image and recover the message.
 		<br><br>
 		<b>stegAsaurus</b> is powered by <a href="http://domnit.org/stepic/doc/">stepic</a> and <a href="http://flask.pocoo.org/">flask</a>. Source code available on <a href="https://github.com/satej-soman/stegasaurus">github.</a>
+		<br><br>
+		Built at <a href="http://www.hacktech.io/">HackTech</a>.
 		</h4>
 	</div>
 	<div id="encode-panel" class="row tab-pane fade">
@@ -75,17 +77,17 @@
 			</div>
 	  	</div>
 		<div class="row">
-			<div class="col-xs-4 col-md-4"></div>
-				<div class="col-xs-4 col-md-4 btn-group" id="encode-buttons">
-				<ul class="nav nav-pills" id="encode-workflow">
-					<li id="load-button" class="active"><a href="#">Load</a></li>
-					<li class="chev"> <span class="glyphicon glyphicon-chevron-right"></span> </li>
-					<li id="encode-button" class="disabled"> <a href="#">Encode</a></li>
-					<li class="chev"> <span class="glyphicon glyphicon-chevron-right"></span> </li>
-					<li id="save-button" class="disabled"> <a href="#">Save</a></li>
-                </ul>
-            	</div>
-			<div class="col-xs-4 col-md-4"></div>
+		    <div class="col-xs-4 col-md-4"></div>
+		    <div class="col-xs-4 col-md-4 btn-group" id="encode-buttons">
+			<ul class="nav nav-pills" id="encode-workflow">
+			    <li id="load-button" class="active"><a href="#">Load</a></li>
+			    <li class="chev"> <span class="glyphicon glyphicon-chevron-right"></span> </li>
+			    <li id="encode-button" class="disabled"> <a href="#">Encode</a></li>
+			    <li class="chev"> <span class="glyphicon glyphicon-chevron-right"></span> </li>
+			    <li id="save-button" class="disabled"> <a href="#">Save</a></li>
+                        </ul>
+            	    </div>
+		    <div class="col-xs-4 col-md-4"></div>
 		</div>
 	</div>
 
