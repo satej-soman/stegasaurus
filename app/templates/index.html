@@ -1,10 +1,10 @@
 <html>
-<head> 
+<head>
 	<title> stegAsaurus | sneaky messages </title>
 
 	<!-- JQUERY -->
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	
+
 	<!-- BOOTSTRAP -->
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
@@ -15,6 +15,9 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
+        <!-- Dropbox lib -->
+        <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="vl7j0br3qthqq7i"></script>
+
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,700|Alegreya+Sans+SC:400,300,700' rel='stylesheet' type='text/css'>
 
@@ -22,7 +25,7 @@
 	<link rel="stylesheet" href="static/steg.css" />
 	<script type="text/javascript" src="static/steg.js"></script>
 </head>
-	
+
 <body>
 <nav class="navbar navbar-default navbar-fixed-top navbar-static-top navbar-inverse" role="navigation">
     <div class="navbar-header">
@@ -51,7 +54,10 @@
 	  	</div>
 		<div class="row">
 			<div class="col-xs-6 col-md-4"></div>
-			<div class="col-xs-6 col-md-4"><button id="submit" type="button" class="btn btn-default btn-lg btn-block">Encode</button></div>
+			<div class="col-xs-6 col-md-4">
+                            <button id="submit" type="button" class="btn btn-default btn-lg btn-block">Encode</button>
+
+                        </div>
 			<div class="col-xs-6 col-md-4"></div>
 		</div>
 	</div>
@@ -67,4 +73,4 @@
 
 
 </body>
-</html>	
+</html>
