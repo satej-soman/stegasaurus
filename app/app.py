@@ -26,7 +26,7 @@ def index():
 def encode():
     # The url of the original image
     img_url = request.form['img_url']
-    # The message to encode
+    # The message to encoder
     message = request.form['message']
     raw_img = Image.open(StringIO(r.get(img_url).content))
     steg_encoded = stepic.encode(raw_img, message)
@@ -34,6 +34,11 @@ def encode():
     steg_encoded.save(out_buf, 'JPEG', quality=100)
     out_buf.seek(0)
     return send_file(out_buf, mimetype='image/jpeg')
+
+@app.route('/decoder/', methods = ['POST', 'GET'])
+def decode():
+    
+
 
 # set the secret key. dummy value right now
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
