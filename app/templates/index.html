@@ -21,8 +21,12 @@
 	<!-- FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,700|Alegreya+Sans+SC:400,300,700' rel='stylesheet' type='text/css'>
 
+	<!-- LESS -->
+	<link rel="stylesheet/less" type="text/css" href="static/steg.less"/>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.6.1/less.min.js"></script>
+	
 	<!--  LOCAL CSS, JS -->
-	<link rel="stylesheet" href="static/steg.css" />
+	<!-- <link rel="stylesheet" href="static/steg.css" /> -->
 	<script type="text/javascript" src="static/steg.js"></script>
 
 </head>
@@ -59,11 +63,15 @@
 	  	</div>
 		<div class="row">
 			<div class="col-xs-4 col-md-4"></div>
-			<div class="col-xs-4 col-md-4 btn-group" id="encode-buttons">
-                            <button id="photo-select" type="button" class="btn btn-default btn-lg">Select Image</button>
-                            <button id="save" type="button" class="btn btn-default btn-lg">Save to Dropbox</button>
-                            <button id="encode-submit" type="button" class="btn btn-default btn-lg">Encode</button>
-                        </div>
+				<div class="col-xs-4 col-md-4 btn-group" id="encode-buttons">
+				<ul class="nav nav-pills" id="encode-workflow">
+					<li class="active"><a href="#">Load Image</a></li>
+					<li class="chev"> <span class="glyphicon glyphicon-chevron-right"></span> </li>
+					<li class="disabled"> <a href="#">Encode Message</a></li>
+					<li class="chev"> <span class="glyphicon glyphicon-chevron-right"></span> </li>
+					<li class="disabled"> <a href="#">Save to Dropbox</a></li>
+                </ul>
+            	</div>
 			<div class="col-xs-4 col-md-4"></div>
 		</div>
 	</div>

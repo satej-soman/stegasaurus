@@ -27,8 +27,6 @@ def index():
 
 @app.route('/encoder/', methods = ['POST'])
 def encode():
-    print("ENCODE ENDPOINT HIT")
-    pprint(request.form)
     # The url of the original image
     img_url = request.form['img_url']
     message = request.form['message']
@@ -42,12 +40,9 @@ def encode():
 
 @app.route('/decoder/', methods = ['POST'])
 def decode():
-    print("DECODE ENDPOINT HIT")
-    pprint(request.form)
     img_url = request.form['img_url']
     raw_img = Image.open(StringIO(r.get(img_url).content))
-    steg_decoded = stepic.decode(raw_img)
-    return 'data:text/' + steg_decoded
+    return stepic.decode(raw_img)
 
 # set the secret key. dummy value right now
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
