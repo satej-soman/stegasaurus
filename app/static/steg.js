@@ -1,12 +1,42 @@
-var StegApp = (function(document, window, $, Dropbox) {
+var StegApp = (function(document, window, $, Dropbox, Spinner) {
 
     return function() {
 
-        var self = this;
+        var self = this,
+
+            spinOpts = {
+                lines: 13, // The number of lines to draw
+                length: 20, // The length of each line
+                width: 10, // The line thickness
+                radius: 30, // The radius of the inner circle
+                corners: 1, // Corner roundness (0..1)
+                rotate: 0, // The rotation offset
+                direction: 1, // 1: clockwise, -1: counterclockwise
+                color: '#000', // #rgb or #rrggbb or array of colors
+                speed: 1, // Rounds per second
+                trail: 60, // Afterglow percentage
+                shadow: false, // Whether to render a shadow
+                hwaccel: false, // Whether to use hardware acceleration
+                className: 'spinner', // The CSS class to assign to the spinner
+                zIndex: 2e9, // The z-index (defaults to 2000000000)
+                top: 'auto', // Top position relative to parent in px
+                left: 'auto' // Left position relative to parent in px
+            },
+
+            spinner = new Spinner(spinOpts);
 
         this.rawImageUrl = null;
         this.encodedData = null;
         this.imageSelected = false;
+
+        this.startSpinner = function() {
+            console.log("Spin baby spin");
+            spinner.spin($('body')[0]);
+        };
+
+        this.stopSpinner = function() {
+            spinner.stop();
+        };
 
         this.displayRawImage = function(imageUrl) {
 
@@ -47,7 +77,7 @@ var StegApp = (function(document, window, $, Dropbox) {
         this.getEncodedImage = function() {
             if (!this.encodedData) {
                 this.error("Must encode an image first!");
-                return;
+                return "error";
             }
             return this.encodedData;
         };
@@ -55,7 +85,7 @@ var StegApp = (function(document, window, $, Dropbox) {
         this.encodeImage = function() {
 
             var endpoint = window.location.origin + '/encoder/';
-            var message = $("#message").val()
+            var message = $("#message").val();
 
             if (!this.imageSelected) {
                 this.error("Must select image first!");
@@ -67,6 +97,8 @@ var StegApp = (function(document, window, $, Dropbox) {
                 return;
             }
 
+            this.startSpinner();
+
            $.ajax({
                type: 'POST',
                url: endpoint,
@@ -77,6 +109,8 @@ var StegApp = (function(document, window, $, Dropbox) {
            }).done(function(data) {
 
                self.encodedData = data;
+               self.stopSpinner();
+
                self.info("Image successfully encoded!");
 
                $("#encode-button").removeClass('active').addClass('disabled');
@@ -110,7 +144,7 @@ var StegApp = (function(document, window, $, Dropbox) {
 
     };
 
-}(document, window, jQuery, Dropbox));
+}(document, window, jQuery, Dropbox, Spinner));
 
 $(document).ready(function() {
 
