@@ -81,25 +81,25 @@ var StegApp = (function(document, window, $, Dropbox) {
 
         this.decodeImage = function() {
 
-        	var endpoint = window.location.href.split('?') + 'decoder/';
-        	var image    = $("#encoded-image-url").val();
+                var endpoint = window.location.href.split('?') + 'decoder/';
+                var image    = $("#encoded-image-url").val();
 
-        	if (!image){
-        		this.error("Must select image to decode!");
-        		return;
-        	} 
+                if (!image){
+                        this.error("Must select image to decode!");
+                        return;
+                }
 
-        	$.ajax({
-        		type: 'POST',
-        		url: endpoint,
-        		data: {
-        			img_url: image
-        		}
-        	}).done(function(data) {
-        		self.decodedData = data;
-        		$("#decoded-message").text(self.decodedData);
-        		self.info("Image successfully decoded!");
-        	})
+                $.ajax({
+                        type: 'POST',
+                        url: endpoint,
+                        data: {
+                                img_url: image
+                        }
+                }).done(function(data) {
+                        self.decodedData = data;
+                        $("#decoded-message").text(self.decodedData);
+                        self.info("Image successfully decoded!");
+                })
         };
 
     };
@@ -151,6 +151,6 @@ $(document).ready(function() {
 
     // DECODE PANEL
     $("#decode-submit").click(function(e) {
-    	app.decodeImage();
+        app.decodeImage();
     });
 });
