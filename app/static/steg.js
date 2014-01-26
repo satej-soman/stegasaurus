@@ -69,6 +69,10 @@ $(document).ready(function() {
         extensions: [".jpg", ".jpeg", ".png", ".bmp", ".tiff"]
     };
 
+    $("#submit").click(function(e) {
+        app.encodeImage();
+    });
+
     $("#photo-select").click(function(e) {
         Dropbox.choose(choose_opts);
     });
