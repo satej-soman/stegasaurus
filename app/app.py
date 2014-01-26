@@ -2,8 +2,10 @@ from __future__ import print_function
 
 import sys
 import stepic
+import requests as r
 
-from flask import Flask, render_template
+from StringIO import StringIO
+from flask import Flask, render_template, request, send_file
 from PIL import Image
 
 app = Flask(__name__)
@@ -19,10 +21,19 @@ def index():
 # ...
 # ...
 # Wooooooow
-def encode_image(imagefile, message, outfile):
-    image = Image.open(imagefile)
-    encoded = stepic.encode(image, message)
-    return encoded
+
+@app.route('/encoder/', methods=['POST'])
+def encode():
+    # The url of the original image
+    img_url = request.form['img_url']
+    # The message to encode
+    message = request.form['message']
+    raw_img = Image.open(StringIO(r.get(img_url).content))
+    steg_encoded = stepic.encode(raw_img, message)
+    out_buf = StringIO()
+    steg_encoded.save(out_buf, 'JPEG', quality=100)
+    out_buf.seek(0)
+    return send_file(out_buf, mimetype='image/jpeg')
 
 # set the secret key. dummy value right now
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
